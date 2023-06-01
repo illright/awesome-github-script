@@ -1,5 +1,37 @@
 # Awesome [`actions/github-script`](https://github.com/actions/github-script)
 
+## How to write scripts with type checking
+
+Create a folder for your scripts (e.g., `.github/scripts`). Inside of that folder, create the following files:
+
+* `jsconfig.json` <br />
+  ```json
+  {
+    "compilerOptions": {
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "target": "ES2020",
+      "strict": true,
+      "checkJs": true,
+      "skipLibCheck": false,
+      "types": ["./globals"]
+    },
+    "exclude": ["node_modules", "**/node_modules/*"]
+  }
+  ```
+
+* `globals.d.ts` <br />
+  ```ts
+  declare const github: import("@octokit/rest").Octokit;
+  declare const context: import("@actions/github/lib/context").Context;
+  declare const core: typeof import("@actions/core");
+  declare const glob: typeof import("@actions/glob");
+  declare const io: typeof import("@actions/io");
+  declare const exec: typeof import("@actions/exec");
+  ```
+  
+Install the packages mentioned in `globals.d.ts` and you should now see typed global variables in `.js` files that you create in your folder!
+
 ## Sample context objects for events
 
 Use this as a cheatsheet for what values to expect from the global variable `context`
