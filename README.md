@@ -1,4 +1,4 @@
-# awesome-github-script
+# Awesome [`actions/github-script`](https://github.com/actions/github-script)
 
 ## Sample context objects for events
 
