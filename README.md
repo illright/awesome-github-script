@@ -437,7 +437,7 @@ Context {
 
 <details><summary><code>issue_comment</code> (added, on pull request)</summary>
 
-```
+```json
 {
   "payload": {
     "action": "created",
@@ -693,7 +693,7 @@ Context {
 
 <details><summary><code>issue_comment</code> (edited, on pull request)</summary>
 
-```
+```json
 {
   "payload": {
     "action": "edited",
